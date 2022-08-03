@@ -1,0 +1,84 @@
+.mainbox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.banner {
+  height: 21.6vw;
+  width: 100vw;
+  background-image: url(../images/nopic.png);
+  background-position: center center;
+  background-size: cover;
+}
+.banner .login {
+  margin-right: 2.6667vw;
+  position: absolute;
+  right: 0;
+  text-align: right;
+}
+.banner .sitename {
+  font-size: 5.8667vw;
+  line-height: 21.6vw;
+}
+.search {
+  height: 8vw;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+.search .searchbutton {
+  width: 125px;
+  height: 43px;
+}
+.search .searchin {
+  width: 66.6667vw;
+  height: 8vw;
+}
+.scrolpic {
+  height: 50.6667vw;
+  width: 100vw;
+}
+.scrolpic .spic {
+  height: 50.6667vw;
+  width: 100vw;
+  background-image: url(../images/nopic.png);
+  background-position: center center;
+  background-size: cover;
+}
+.pic {
+  height: 50.6667vw;
+  width: 100vw;
+  max-width: 100vw;
+  max-height: 50.6667vw;
+}
+.detailshow {
+  width: 100vw;
+  height: auto;
+}
+.detailshow .detailbox {
+  width: 100vw;
+  height: 34.6667vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 0.2667vw solid #bbbbbb;
+}
+.detailshow .detailbox .detailimg {
+  width: 42.6667vw;
+  height: 32vw;
+  background-image: url(../images/nopic.png);
+  background-position: center center;
+  background-size: cover;
+  align-self: center;
+}
+.detailshow .detailbox .infbox {
+  flex: 1;
+  height: 32vw;
+  padding: 2.6667vw;
+  color: #bcb8b8;
+  font-size: 3.7333vw;
+}
+.detailshow .detailbox .infbox .righttext {
+  margin-left: 13.3333vw;
+}
