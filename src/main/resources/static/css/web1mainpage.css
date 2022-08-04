@@ -1,3 +1,36 @@
+.noticebox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  left: 12.8vw;
+  top: 59.4667vw;
+  width: 74.6667vw;
+  height: 44vw;
+  line-height: 5.3333vw;
+  border-radius: 4px 4px 4px 4px;
+  text-align: center;
+  z-index: 100;
+  background-color: #ffffff;
+}
+.noticebox .noticetitle {
+  color: #000000;
+  margin-top: 4vw;
+  font-size: 18px;
+  text-align: center;
+}
+.noticebox .noticetext {
+  font-size: 15px;
+  text-align: center;
+  color: #888888;
+}
+.noticebox .noticeconfirm {
+  width: 74.6667vw;
+  height: 10vw;
+  font-size: 4.8vw;
+  color: #67D666;
+  text-align: center;
+}
 .mainbox {
   width: 100%;
   height: 100%;
@@ -12,10 +45,16 @@
   background-size: cover;
 }
 .banner .login {
-  margin-right: 2.6667vw;
+  display: flex;
+  flex-direction: row;
+  margin-right: 1vw;
   position: absolute;
+  top: 0;
   right: 0;
   text-align: right;
+}
+.banner .login .log {
+  margin-right: 1vw;
 }
 .banner .sitename {
   font-size: 5.8667vw;
@@ -67,9 +106,7 @@
 .detailshow .detailbox .detailimg {
   width: 42.6667vw;
   height: 32vw;
-  background-image: url(../images/nopic.png);
-  background-position: center center;
-  background-size: cover;
+  object-fit: fill;
   align-self: center;
 }
 .detailshow .detailbox .infbox {

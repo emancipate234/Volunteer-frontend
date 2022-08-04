@@ -1,23 +1,69 @@
+.noticebox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    left: 12.8vw;
+    top: 59.4667vw;
+    width: 74.6667vw;
+    height: 44vw;
+    line-height: 5.3333vw;
+    border-radius: 4px 4px 4px 4px;
+    text-align: center;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 100);
+
+    .noticetitle {
+        color: rgba(0, 0, 0, 1);
+        margin-top: 4vw;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .noticetext {
+        font-size: 15px;
+        text-align: center;
+        color: rgba(136, 136, 136, 100);
+    }
+
+    .noticeconfirm {
+        width: 74.6667vw;
+        height: 10vw;
+        font-size: 4.8vw;
+        color: #67D666;
+        text-align: center;
+    }
+}
+
 .mainbox {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
+
 .banner {
     height: 21.6vw;
     width: 100vw;
     background-image: url(../images/nopic.png);
     background-position: center center;
     background-size: cover;
-    .login{
-        margin-right: 2.6667vw;
+
+    .login {
+        display: flex;
+        flex-direction: row;
+        margin-right: 1vw;
         position: absolute;
+        top: 0;
         right: 0;
         text-align: right;
+
+        .log {
+            margin-right: 1vw;
+        }
     }
-    .sitename
-    {
+
+    .sitename {
         font-size: 5.8667vw;
         line-height: 21.6vw;
     }
@@ -43,12 +89,13 @@
 .scrolpic {
     height: 50.6667vw;
     width: 100vw;
-    .spic{
+
+    .spic {
         height: 50.6667vw;
         width: 100vw;
         background-image: url(../images/nopic.png);
-            background-position: center center;
-            background-size: cover;
+        background-position: center center;
+        background-size: cover;
     }
 }
 
@@ -70,12 +117,11 @@
         flex-direction: row;
         justify-content: space-around;
         border: .2667vw solid rgba(187, 187, 187, 100);
+
         .detailimg {
             width: 42.6667vw;
             height: 32vw;
-            background-image: url(../images/nopic.png);
-            background-position: center center;
-            background-size: cover;
+            object-fit: fill;
             align-self: center;
         }
 
@@ -85,7 +131,8 @@
             padding: 2.6667vw;
             color: rgba(188, 184, 184, 100);
             font-size: 3.7333vw;
-            .righttext{
+
+            .righttext {
                 margin-left: 13.3333vw;
             }
         }
