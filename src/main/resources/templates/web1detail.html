@@ -43,6 +43,23 @@
                 <button class="ax-btn ax-ripple noticecon  ax-secondary">确认</button>
             </div>
         </div>
+        <div v-if="jointeam.show" class="noticebox custom3">
+            <span class="noticetitle">提示</span>
+            <p class="noticetext">
+                请确保自己符合该活动的条件，若不符合仍报名，志愿时长不记！！！
+            </p>
+            <div class="selectbox">
+                <button class="ax-btn ax-ripple noticecon  ax-secondary" @click="confirmjoin">确认</button>
+            </div>
+        </div>
+        <div v-if="jointeam.successhow" class="noticebox custom3">
+            <p class="noticetext">
+                报名成功！
+            </p>
+            <div class="selectbox">
+                <button class="ax-btn ax-ripple noticecon  ax-secondary" @click="joinhide">确认</button>
+            </div>
+        </div>
         <div class="smbanner">
             <span class="back ax-iconfont ax-icon-left-t" @click="backtomainpage"></span>
             <span class="centertext">活动介绍</span>
@@ -76,6 +93,7 @@
             {{detailintext}}
         </pre>
         </div>
+        <button class="ax-btn ax-ripple ax-secondary joinbtn" @click="join">我要报名</button>
     </div>
 
 
@@ -116,6 +134,10 @@
             tele:{
                 telenum:'123456789',
                 show:false,
+            },
+            jointeam:{
+                successhow:false,
+                show:false,
             }
 
         },
@@ -140,6 +162,19 @@
             {
                 this.tele.show=false;
             },
+            join()
+            {
+                this.jointeam.show=true;
+            },
+            confirmjoin()
+            {
+                this.jointeam.show=false;
+                this.jointeam.successhow=true;
+            },
+            joinhide()
+            {
+                this.jointeam.successhow=false;
+            }
         },
     })
 </script>

@@ -57,12 +57,29 @@
   margin-bottom: 2vw;
 }
 .custom2 .selectbox .noticecon {
-  width: 21.3333vw;
-  height: 8vw;
+  box-sizing: 21.3vw, 8vw;
 }
 .custom2 .selectbox .noticedeny {
-  width: 21.3333vw;
-  height: 8vw;
+  box-sizing: 21.3vw, 8vw;
+}
+.custom3 {
+  position: fixed;
+  left: 12.8vw;
+  top: 59.4667vw;
+  height: 37.3333vw;
+  width: 74.6667vw;
+  height: 44vw;
+}
+.custom3 .selectbox {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2vw;
+}
+.custom3 .selectbox .noticecon {
+  box-sizing: 21.3vw, 8vw;
+}
+.custom3 .selectbox .noticedeny {
+  box-sizing: 21.3vw, 8vw;
 }
 .mainbox {
   width: 100%;
@@ -80,8 +97,8 @@
   line-height: 9.6vw;
 }
 .simpleinf {
-  height: 77.8667vw;
   width: 100vw;
+  height: auto;
 }
 .simpleinf span {
   margin-top: 2vw;
@@ -96,7 +113,7 @@
 }
 .simpleinf .simpleinftext {
   width: 100vw;
-  height: 28.5333vw;
+  height: auto;
 }
 .smborderbox {
   border: 0.2667vw solid #bbbbbb;
@@ -139,4 +156,9 @@
   align-self: center;
   line-height: 9.6vw;
   left: 0;
+}
+.joinbtn {
+  margin-bottom: 2vw;
+  align-self: center;
+  box-sizing: 21.2vw, 8vw;
 }
