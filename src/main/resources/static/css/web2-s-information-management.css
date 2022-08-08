@@ -1,0 +1,100 @@
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    margin: 0 auto;
+    background-color: white;
+    border-bottom: 2px solid rgba(0,0,0,.3);
+}
+.header .return {
+    display: inline-block;
+    width: 30px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 20px;
+    color: #1f1f1f;
+    padding: 10px;
+}
+.header span {
+    margin-right: 43%;
+    display: inline-block;
+    font-weight: 700;
+}
+.search {
+    display: flex;
+    height: 40px;
+    line-height: 40px;
+}
+.search .select {
+    flex: 0.5;
+}
+.search .type {
+    flex: 1;
+    display: inline-block;
+    width: 210px;
+}
+.search .star {
+    flex: 1;
+    display: none;
+    width: 210px;
+}
+.search .number {
+    flex: 1;
+    display: none;
+    width: 202px;
+}
+.search .select {
+    flex: 0.5;
+}
+.box {
+    display: inline-block;
+    width: 100%;
+    height: 88px;
+    border-bottom: 2px solid rgba(0,0,0,.2);
+}
+.box .top {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 15px;
+    font-size: 20px;
+    color: black;
+}
+.box .bottom {
+    display: flex;
+    justify-content: space-between;
+    color: #bcb8b8;
+}
+.bottom .left {
+    margin-left: 15px;
+}
+.bottom .right {
+    margin-right: 15px;
+}
+.button {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    bottom: 0;
+    border-top: #bcb8b8 2px solid;
+}
+.button a {
+    display: inline-block;
+    flex: 1;
+    text-align: center;
+}
+.button a:nth-child(1) {
+    border-right: #bcb8b8 2px solid;
+}
