@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <link rel="stylesheet" href="../static/css/normalize.css">
+    <link rel="stylesheet" href="../static/css/web2-c-information-management.css">
+    <script type="text/javascript"  src="../static/js/c-change.js"></script>
+    <title>信息管理</title>
+</head>
+<body>
+    <div class="header">
+        <a class="return" href="web2-college-administrator.html">&lt;</a>
+        <span>信息管理</span>
+    </div>
+    <form class="search">
+        <select id="year" name="year">
+            <option>2022</option>
+            <option>2021</option>
+            <option>2020</option>
+            <option>2019</option>
+        </select>
+        <select id="select" class="select" onchange="selectchange()">
+            <option>类型</option>
+            <option>星级</option>
+            <option>学号</option>
+        </select>
+        <select id="type" class="type" onchange="typechange()">
+            <option>普通志愿者</option>
+            <option>星级志愿者</option>
+            <option>优秀青年志愿者</option>
+        </select>
+        <select id="star" class="star" onchange="starchange()">
+            <option></option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <input id="number" class="number" type="text"/>
+        <input class="submit" type="submit" value="筛选"/>
+    </form>
+    <ul>
+        <li>
+            <a href="web2-c-v-info.html" class="box">
+                <span class="top">姓名 学号</span>
+                <div class="bottom">
+                    <span class="left">院系专业</span>
+                    <span class="right">星级：1</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="web2-c-v-info.html" class="box">
+                <span class="top">姓名 学号</span>
+                <div class="bottom">
+                    <span class="left">院系专业</span>
+                    <span class="right">星级：2</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <a class="v-add" id="v-add" href="web2-c-v-add.html">录入优秀青年志愿者信息</a>
+    <a class="rise" id="rise" href="web2-c-v-rise.html">提优</a>
+</body>
+</html>
