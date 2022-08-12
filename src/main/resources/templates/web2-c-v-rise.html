@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <link rel="stylesheet" href="../static/css/normalize.css">
+    <link rel="stylesheet" href="../static/css/web2-c-v-rise.css">
+    <script type="text/javascript"  src="../static/js/c-change.js"></script>
+    <script type="text/javascript"  src="../static/js/checkAll.js"></script>
+    <title>批量操作</title>
+</head>
+<body>
+    <div class="header">
+        <button onclick="checkAll()"></button>
+        <span>全选</span>
+        <a href="web2-c-information-management.html" class="cancel">取消</a>
+    </div>
+    <form class="search">
+        <select id="year" name="year">
+            <option>2022</option>
+            <option>2021</option>
+            <option>2020</option>
+            <option>2019</option>
+        </select>
+        <select id="select" class="select" onchange="selectchange()">
+            <option>类型</option>
+            <option>星级</option>
+            <option>学号</option>
+        </select>
+        <select id="type" class="type" onchange="typechange()">
+            <option>普通志愿者</option>
+            <option>星级志愿者</option>
+            <option>优秀青年志愿者</option>
+        </select>
+        <select id="star" class="star">
+            <option></option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <input id="number" class="number" type="text"/>
+        <input class="submit" type="submit" value="筛选"/>
+    </form>
+    <form>
+        <a class="box">
+            <div class="top">
+                <span>姓名</span>
+                <input type="checkbox" name="volunteer">
+            </div>
+            <div class="bottom">
+                <span class="left">院系专业</span>
+                <span class="right">星级：1</span>
+            </div>
+        </a>
+    </form>
+    <button class="delete" onclick="">选中提优</button>
+</body>
+</html>

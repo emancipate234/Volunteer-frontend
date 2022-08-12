@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="wap-font-scale" content="no" />
+    <meta name="viewport" content="user-scalable=no, width=device-width" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>用户时长页</title>
+    <meta name="keywords" content="页面关键字" />
+    <meta name="description" content="页面描述" />
+    <link href="../static/css/web3usertime.css" rel="stylesheet" type="text/css" />
+    <link href="../static/axui/css/ax.css" rel="stylesheet" type="text/css">
+    <link href="../static/axui/css/ax-response.css" rel="stylesheet" type="text/css">
+    <script src="../static/js/vue.js"></script>
+</head>
+
+<body>
+    <div class="mainbox" id="root">
+        <div class="smbanner">
+            <span class="back ax-iconfont ax-icon-left-t lefttext"></span>
+            <span class="centertext">信用时数</span>
+        </div>
+   <div class="opratebox">
+    <div class="display yeartime">
+        <span>年度时数</span>
+        <span>{{yeardata[currentYearindex].yeartime}}</span>
+    </div>
+    <div class="display time">
+        <span>{{yeardata[currentYearindex].time}}</span>
+    </div>
+    <div class="display year">
+            <select axSelect data-width="66px" v-model:value="currentYearindex">
+                <option value='0' selected>2022</option>
+                <option value="1">2021</option>
+                <option value="2">2020</option>
+                <option value="3">2019</option>
+            </select>
+   </div>
+   </div>
+   <div class="activitybox">
+    <div v-for="item in yeardata[currentYearindex].activityboxes" :key="item.id">
+        <div class="smborderbox activities">
+        <div class="rightbox">
+            <span class="name">
+                {{item.name}}
+            </span>
+            <span class="timestap">
+                {{item.timestap}}
+            </span>
+        </div>
+        <div class="leftbox">
+            <span class="vtime">
+                {{item.timev}}
+            </span>
+        </div>
+    </div>
+    </div>
+   </div>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            currentYearindex: '0',
+            yeardata:[
+                {
+                    year:'2022',
+                    time:'8.5h',
+                    yeartime:'8.5h',
+                    activityboxes:[
+                    {
+                        id:0,
+                        name:'活动名称',
+                        timev:'8.5h',
+                        timestap:'2021年6月28日-09:13-17:57'
+                    },
+                    {
+                        id:1,
+                        name:'活动名称',
+                        timev:'8.5h',
+                        timestap:'2021年6月28日-09:13-17:57'
+                    },
+                    {
+                        id:2,
+                        name:'活动名称',
+                        timev:'8.5h',
+                        timestap:'2021年6月28日-09:13-17:57'
+                    },
+                    ],
+                },
+                {
+                    year:'2021',
+                    time:'8.6h',
+                    yeartime:'8.6h',
+                    activityboxes:[
+                    {
+                        id:0,
+                        name:'活动名称',
+                        timev:'8.6h',
+                        timestap:'2021年6月28日-09:13-17:57'
+                    },
+                    {
+                        id:1,
+                        name:'活动名称',
+                        timev:'8.6h',
+                        timestap:'2021年6月28日-09:13-17:57'
+                    },
+                    {
+                        id:2,
+                        name:'活动名称',
+                        timev:'8.6h',
+                        timestap:'2021年6月28日-09:13-17:57'
+                    },
+                    ],
+                },
+                {
+                    year:'2020',
+                    time:'8.7h',
+                    yeartime:'8.7h',
+                    activityboxes:[
+                    {
+                        id:0,
+                        name:'活动名称',
+                        timev:'8.7h',
+                        timestap:'2021年6月28日-09:13-17:57'
+                    },
+                    {
+                        id:1,
+                        name:'活动名称',
+                        timev:'8.7h',
+                        timestap:'2021年6月28日-09:13-17:57'
+                    },
+                    {
+                        id:2,
+                        name:'活动名称',
+                        timev:'8.7h',
+                        timestap:'2021年6月28日-09:13-17:57'
+                    },
+                    ],
+                },
+                {
+                    year:'2019',
+                    time:'8.8h',
+                    yeartime:'8.8h',
+                    activityboxes:[
+                    {
+                        id:0,
+                        name:'活动名称',
+                        timev:'8.8h',
+                        timestap:'2021年6月28日-09:13-17:57'
+                    },
+                    {
+                        id:1,
+                        name:'活动名称',
+                        timev:'8.8h',
+                        timestap:'2021年6月28日-09:13-17:57'
+                    },
+                    {
+                        id:2,
+                        name:'活动名称',
+                        timev:'8.8h',
+                        timestap:'2021年6月28日-09:13-17:57'
+                    },
+                    ],
+                },                
+            ]
+        },
+        methods: {
+            changeyear(index)
+            {
+                console.log(index);
+                this.currentYearindex = index;
+            },
+        }
+    })
+</script>
+<script src="../static/axui/js/ax.min.js" type="text/javascript"></script>
+
+</html>
