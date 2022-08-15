@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="wap-font-scale" content="no" />
+    <meta name="viewport" content="user-scalable=no, width=device-width" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>详情页</title>
+    <meta name="keywords" content="页面关键字" />
+    <meta name="description" content="页面描述" />
+    <script src="../../static/js/vue.js"></script>
+    <link href="../../static/axui/css/ax.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/web1detail.css" rel="stylesheet" type="text/css">
+    <link href="../../static/axui/css/ax-response.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="mainbox" id="root">
+        <div v-if="shownotice" class="noticebox">
+            <span class="noticetitle">提示</span>
+            <p class="noticetext">
+                请绑定身份信息，否则无法报名参加志愿活动！
+            </p>
+            <button class="ax-btn noticeconfirm">确定</button>
+        </div>
+        <div v-if="qr.show" class="noticebox custom">
+            <div noticetitlebox><span @click="hideqr" class="back ax-iconfont ax-icon-left-t"></span><span class="noticetitle">请保存该群的二维码</span></div>
+            <img class="qrimg" :src="qr.url">
+        </div>
+        <div v-if="tele.show" class="noticebox custom2">
+            <span class="noticetitle">提示</span>
+            <p class="noticetext">
+                要拨打{{tele.telenum}}吗？
+            </p>
+            <div class="selectbox">
+                <button class="ax-btn ax-ripple noticedeny" @click="telehide">取消</button>
+                <button class="ax-btn ax-ripple noticecon  ax-secondary">确认</button>
+            </div>
+        </div>
+        <div v-if="jointeam.show" class="noticebox custom3">
+            <span class="noticetitle">提示</span>
+            <p class="noticetext">
+                请确保自己符合该活动的条件，若不符合仍报名，志愿时长不记！！！
+            </p>
+            <div class="selectbox">
+                <button class="ax-btn ax-ripple noticecon  ax-secondary" @click="confirmjoin">确认</button>
+            </div>
+        </div>
+        <div v-if="jointeam.successhow" class="noticebox custom3">
+            <p class="noticetext">
+                报名成功！
+            </p>
+            <div class="selectbox">
+                <button class="ax-btn ax-ripple noticecon  ax-secondary" @click="joinhide">确认</button>
+            </div>
+        </div>
+        <div class="smbanner">
+            <span class="ax-iconfont ax-icon-left-t back" @click="backtomainpage"></span>
+            <span class="centertext">活动介绍</span>
+        </div>
+        <div class="simpleinf">
+            <div class="bannerpic">
+                <img class="bannerpic" src="../static/images/nopic.png" alt="">
+            </div>
+            <div class="simpleinftext">
+                <div class="inf">
+                    <span>
+                        {{activity}}
+                    </span><br>
+                    <span>{{acttime}}</span>
+                    <span class="righttext">已报名:{{joinnumber}}</span>
+                </div>
+                <div class="leaderinf">
+                    <div class="smborderbox">
+                        <span class="leaderico ax-iconfont ax-icon-person"></span>
+                        <span>{{leadername}}</span>
+                        <span class="depart">{{depart}}</span>
+                        <span class="tele ax-iconfont ax-icon-phone" @click="teleshow"></span>
+                    </div>
+                    <div class="smborderbox"><span class="qqun">微信群二维码：</span><span @click="showqr()" class="ax-iconfont ax-icon-right-t righttext"></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="detailbox">
+            <span class="detailname">活动详情</span>
+            <pre class="detailtext">
+            {{detailintext}}
+        </pre>
+        </div>
+        <button class="ax-btn ax-ripple ax-secondary joinbtn" @click="join">我要报名</button>
+    </div>
+
+
+</body>
+<script>
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            activity: '活动',
+            shownotice: false,
+            acttime: '2022.08.02-2022.08.16',
+            joinnumber: '0/80',
+            leadername: '谁谁谁',
+            depart: '郑州大学什么院',
+            qqun: '123456789',
+            detailintext: `
+一、活动介绍（此活动为线上活动）
+志愿者通过志愿服务的方式拍摄、收集、录制非物质文化遗产、乡村振兴、物质文化遗产、地方特色农产品相关的视频与图文素材供基金会编辑、剪辑为相关公益科普宣传材料。
+二、具体服务内容、安排流程以及相关效果考核规
+则
+1．具体的服务内容。
+志愿者按照活动要求，以志愿服务方式拍摄与非物质文化遗产、乡村振兴、环保、非遗、自然地理、地方特色农产品（乡村振兴）相关的视频素材，供基金会开展相关公益科普主题的展示与宣传。
+2．具体活动安排流程。
+@第一步：基金会每周发布1-2次视频收集任务（任务有明确的主题方向）;
+＠第二步：志愿者按照要求，以志愿服务方式参与任务视频的拍摄与素材采集；
+日第三步：基金会将志愿者拍摄的视频根据大类进行编辑、剪辑、制作，并配套文字与音频，经校对后制作成三农（乡村振兴）、非遗文化、地理历史等完整的志愿服务成果；
+④第四步：基金会在互联网平台发布编辑校对后的科普视频、图文与音频内容。
+3．效果考核规則：
+＠志愿者拍摄与收集内容中不得夹带广告，不得出现有悖法律的内容；
+＠拍摄内容应与当期专题任务内容相符，经校对与任务主题无关的内容不会被纳入活动范畴。
+我要报名
+（还需3小时开始）
+留言关注`,
+            qr: {
+                show: false,
+                url: '../static/images/nopic.png'
+            },
+            tele: {
+                telenum: '123456789',
+                show: false,
+            },
+            jointeam: {
+                successhow: false,
+                show: false,
+            }
+
+        },
+        methods: {
+            showqr() {
+                this.qr.show = true;
+            },
+            hideqr() {
+                this.qr.show = false;
+            },
+            backtomainpage() {
+                location.href = "web1mainpage.html";
+            },
+            teleshow() {
+                this.tele.show = true;
+            },
+            telehide() {
+                this.tele.show = false;
+            },
+            join() {
+                this.jointeam.show = true;
+            },
+            confirmjoin() {
+                this.jointeam.show = false;
+                this.jointeam.successhow = true;
+            },
+            joinhide() {
+                this.jointeam.successhow = false;
+            }
+        },
+    })
+</script>
+<script src="../static/axui/js/ax.min.js" type="text/javascript"></script>
+
+</html>

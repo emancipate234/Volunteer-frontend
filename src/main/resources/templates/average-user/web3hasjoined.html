@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="wap-font-scale" content="no" />
+    <meta name="viewport" content="user-scalable=no, width=device-width" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>用户时长页</title>
+    <meta name="keywords" content="页面关键字" />
+    <meta name="description" content="页面描述" />
+    <link href="../../static/css/web3hasjoined.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/axui/css/ax.css" rel="stylesheet" type="text/css">
+    <link href="../../static/axui/css/ax-response.css" rel="stylesheet" type="text/css">
+    <script src="../../static/js/vue.js"></script>
+</head>
+
+<body>
+    <div class="mainbox" id="root">
+        <div class="smbanner">
+            <a class="back ax-iconfont ax-icon-left-t lefttext" href="web3-personal-homepage.html"></a>
+            <span class="centertext">已报名活动</span>
+        </div>
+        <div class="detailshow">
+            <ul>
+                <li v-for="item in detaillist" :key="item.id">
+                    <div class="detailbox ax-lazy ax-fadeInUp ax-slowest">
+                        <img :src="item.detailimage" class="detailimg">
+                        <!-- <div class="detailimg">
+                        </div> -->
+                        <div class="infbox">
+                            <span>活动名称:{{item.name}}</span><span class="righttext">人数{{item.howmany}}</span><br>
+                            <span>地点:{{item.where}}</span>
+                            <p>详细介绍:{{item.detailinf}}</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            detaillist: [{
+                id: '0',
+                name: '名称',
+                where: '地点',
+                howmany: '0/6',
+                detailinf: '详情',
+                detailimage: '../static/images/nopic.png',
+            }, {
+                id: '1',
+                name: '名称',
+                where: '地点',
+                howmany: '0/6',
+                detailinf: '详情',
+                detailimage: '../static/images/nopic.png',
+            }, {
+                id: '2',
+                name: '名称',
+                where: '地点',
+                howmany: '0/6',
+                detailinf: '详情',
+                detailimage: '../static/images/nopic.png',
+            }, {
+                id: '3',
+                name: '名称',
+                where: '地点',
+                howmany: '0/6',
+                detailinf: '详情',
+                detailimage: '../static/images/nopic.png',
+            }, {
+                id: '4',
+                name: '名称',
+                where: '地点',
+                howmany: '0/6',
+                detailinf: '详情',
+                detailimage: '../static/images/nopic.png',
+            }, ],
+
+
+
+        },
+    })
+</script>
+
+</html>
