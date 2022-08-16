@@ -94,7 +94,9 @@ a {
     display: inline-block;
     flex: 1;
     text-align: center;
+    background-color: white;
 }
 .button a:nth-child(1) {
     border-right: #bcb8b8 2px solid;
+    background-color: white;
 }
