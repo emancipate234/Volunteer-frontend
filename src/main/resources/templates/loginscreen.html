@@ -107,30 +107,7 @@
         }
     </script>
 
-    <script>
-        function sub() {
-            var flag = false;
-            var input_code = document.getElementById('vcode').value;
-            var name = document.getElementById('username').value;
-            var pass = document.getElementById('password').value;
-            var cname = "admin";
-            var cpass = "123";
-            if (input_code.toLowerCase() == code.toLowerCase()) {
-                //验证码正确(表单提交)
-                flag = true;
-            }
-            if (name == cname && pass == cpass && flag == true) {
-                alert("登录成功! ")
-                    //window.location.href="# ";
-            } else {
-                if (flag == false) {
-                    alert("验证失败! ")
-                    return;
-                }
-                alert("用户名或密码错误! ")
-            }
-        }
-    </script>
+    <script src="../static/js/loginscreen.js"></script>
 </body>
 
 </html>
