@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="wap-font-scale" content="no" />
+    <meta name="viewport" content="user-scalable=no, width=device-width" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>发布志愿活动</title>
+    <meta name="keywords" content="页面关键字" />
+    <meta name="description" content="页面描述" />
+    <script src="../static/js/vue.js"></script>
+    <link href="../static/axui/css/ax.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/web2publishactivity.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="mainbox" id="root">
+        <div v-if="qr.show" class="noticebox custom">
+            <div noticetitlebox><span @click="hideqr" class="back ax-iconfont ax-icon-left-t"></span><span
+                    class="noticetitle">请保存该群的二维码</span></div>
+            <img class="qrimg" :src="qr.url">
+        </div>
+        <div v-if="tele.show" class="noticebox custom2">
+            <span class="noticetitle">提示</span>
+            <p class="noticetext">
+                要拨打{{tele.telenum}}吗？
+            </p>
+            <div class="selectbox">
+                <button class="ax-btn ax-ripple noticedeny" @click="telehide">取消</button>
+                <button class="ax-btn ax-ripple noticecon  ax-secondary">确认</button>
+            </div>
+        </div>
+        <div v-if="jointeam.show" class="noticebox custom3">
+            <span class="noticetitle">提示</span>
+            <p class="noticetext">
+                请确保自己符合该活动的条件，若不符合仍报名，志愿时长不记！！！
+            </p>
+            <div class="selectbox">
+                <button class="ax-btn ax-ripple noticecon  ax-secondary" @click="confirmjoin">确认</button>
+            </div>
+        </div>
+        <div v-if="jointeam.successhow" class="noticebox custom3">
+            <p class="noticetext">
+                报名成功！
+            </p>
+            <div class="selectbox">
+                <button class="ax-btn ax-ripple noticecon  ax-secondary" @click="joinhide">确认</button>
+            </div>
+        </div>
+        <div class="smbanner">
+            <span class="ax-iconfont ax-icon-left-t back" @click="backtomainpage"></span>
+            <span class="centertext">发布志愿活动</span>
+            <span class="righttext">完成</span>
+        </div>
+        <div class="simpleinf">
+            <div class="bannerpic">
+                <img class="bannerpic" src="../static/images/nopic.png" alt="">
+            </div>
+            <div class="simpleinftext">
+                <div class="inf">
+                    <span class="name">
+                        <div class="ax-form-group" style="padding-right: 1vw;">
+                            <div class="ax-form-con" style="border: transparent;width: 22.4vw;">
+                                <div class="ax-form-input" style="border: 0;width: 22.4vw;"><input type="text"
+                                        style="border: 0;width: 22.4vw;height: 100%;" placeholder="输入活动名称"></div>
+                            </div>
+                        </div>
+                    </span><br>
+                    <span class="time">
+                        <div class="ax-form-input" style="border: transparent;width: 42vw;">
+                            <input placeholder="选择日期" type="text" axDate data-mode="dialog" data-nowClose="true"
+                                style="border: transparent;width: 42vw;height: 100%;">
+                        </div>
+                    </span>
+                    <span class="righttext">
+                        <div class="ax-form-group" style="padding-right: 1vw;">
+                            <div class="ax-form-con" style="border: transparent;width: 22.4vw;">
+                                <div class="ax-form-input" style="border: 0;width: 22.4vw;"><input type="text"
+                                        style="border: 0;width: 22.4vw; height: 100%;" placeholder="输入人数"></div>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <div class="leaderinf">
+                    <div class="smborderbox">
+                        <span class="leaderico ax-iconfont ax-icon-person"></span>
+                        <span>
+                            <div class="ax-form-group" style="padding-right: 1vw;">
+                                <div class="ax-form-con" style="border: transparent;width: 22.4vw;">
+                                    <div class="ax-form-input" style="border: 0;width: 22.4vw;"><input type="text"
+                                            style="border: 0;width: 22.4vw;height: 100%;" placeholder="输入姓名"></div>
+                                </div>
+                            </div>
+                        </span>
+                        <span class="depart">
+                            <div class="ax-form-group" style="padding-right: 1vw;">
+                                <div class="ax-form-con" style="border: transparent;width: 22.4vw;">
+                                    <div class="ax-form-input" style="border: 0;width: 22.4vw;"><input type="text"
+                                            style="border: 0;width: 22.4vw;height: 100%;" placeholder="输入院系"></div>
+                                </div>
+                            </div>
+                        </span>
+                        <span class="tele ax-iconfont ax-icon-phone" @click="teleshow"></span>
+                    </div>
+                    <div class="smborderbox">
+                        <span class="ax-iconfont ax-icon-qrcode"></span>
+                        <span class="qqun">选择微信群二维码：</span>
+                    </div>
+                    <div class="smborderbox">
+                        <span class="ax-iconfont ax-icon-pin"></span>
+                        <span class="location">
+                            <div class="ax-form-group" style="padding-right: 1vw;">
+                                <div class="ax-form-con" style="border: transparent;flex:1;">
+                                    <div class="ax-form-input" style="border: 0;flex:1"><input type="text"
+                                            style="border: 0;flex:1;height: 100%;" placeholder="输入地点"></div>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="detailbox">
+            <span class="detailname">活动详情</span>
+            <textarea class="detailtext">
+            {{detailintext}}
+            </textarea>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            activity: '活动',
+            shownotice: false,
+            acttime: '2022.08.02-2022.08.16',
+            joinnumber: '0/80',
+            leadername: '谁谁谁',
+            depart: '郑州大学什么院',
+            qqun: '123456789',
+            detailintext: `
+一、输入活动介绍
+二、输入具体服务内容，包括活动流程安排
+三、输入活动报名者要求
+`,
+            qr: {
+                show: false,
+                url: '../static/images/nopic.png'
+            },
+            tele: {
+                telenum: '123456789',
+                show: false,
+            },
+            jointeam: {
+                successhow: false,
+                show: false,
+            }
+
+        },
+        methods: {
+            showqr() {
+                this.qr.show = true;
+            },
+            hideqr() {
+                this.qr.show = false;
+            },
+            backtomainpage() {
+                location.href = "web1mainpage.html";
+            },
+            teleshow() {
+                this.tele.show = true;
+            },
+            telehide() {
+                this.tele.show = false;
+            },
+            join() {
+                this.jointeam.show = true;
+            },
+            confirmjoin() {
+                this.jointeam.show = false;
+                this.jointeam.successhow = true;
+            },
+            joinhide() {
+                this.jointeam.successhow = false;
+            }
+        },
+    })
+</script>
+<script src="../static/axui/js/ax.min.js" type="text/javascript"></script>
+
+</html>
