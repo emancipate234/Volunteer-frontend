@@ -1,10 +1,16 @@
 body {
-    display: flex;
+    width: 100vw;
+    height: 100vh;
     margin: 0;
-    color: #000000;
     background: url("../img/zzulogin.jpeg") no-repeat;
     background-size: 100% 100%;
     font: 600 16px/18px 'Open Sans', sans-serif;
+}
+
+.return {
+    margin-top: 20px;
+    margin-left: 15px;
+    font-size: 15px;
 }
 
 *,
@@ -152,9 +158,9 @@ buttontwo {
 .login-form .group .container .main_bar .ccode {
     flex: 6;
     text-align: center;
-    color: #ffffff;
+    color: black;
     /*字体颜色白色*/
-    background-color: #000000;
+    background-color: white;
     font-size: 20pt;
     font-family: "华康娃娃体W5";
     cursor: pointer;
