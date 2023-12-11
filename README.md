@@ -1,2 +1,2 @@
-# VolunteerProject
-基于java的志愿者系统
+# Volunteer
+志愿者系统前端部分
